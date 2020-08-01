@@ -696,14 +696,11 @@ public class BluetoothLePlugin extends CordovaPlugin {
 
     AdvertiseSettings.Builder settingsBuilder = new AdvertiseSettings.Builder();
 
-    String modeS = obj.optString("mode", "balanced");
-    int mode = AdvertiseSettings.ADVERTISE_MODE_BALANCED;
-    if (modeS.equals("lowLatency")) {
-      mode = AdvertiseSettings.ADVERTISE_MODE_LOW_LATENCY;
-    } else if (modeS.equals("lowPower")) {
-      mode = AdvertiseSettings.ADVERTISE_MODE_LOW_POWER;
-    }
-    settingsBuilder.setAdvertiseMode(mode);
+    String BLEname = obj.optString("name", "BTSCR-XXXX");
+    bluetoothAdapter.setName(BLEname);
+    Log.d("Chromium", "BLE name set to: "+BLEname);
+    
+    settingsBuilder.setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_LATENCY);
 
     boolean connectable = obj.optBoolean("connectable", true);
     settingsBuilder.setConnectable(connectable);
