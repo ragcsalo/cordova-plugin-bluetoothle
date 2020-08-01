@@ -705,7 +705,7 @@ public class BluetoothLePlugin extends CordovaPlugin {
     boolean connectable = obj.optBoolean("connectable", true);
     settingsBuilder.setConnectable(connectable);
 
-    int timeout = obj.optInt("timeout", 1000);
+    int timeout = obj.optInt("timeout", 180000);
     if (timeout < 0 || timeout > 180000) {
       JSONObject returnObj = new JSONObject();
 
