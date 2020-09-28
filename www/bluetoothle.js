@@ -63,6 +63,9 @@ var bluetoothle = {
   write: function(successCallback, errorCallback, params) {
     cordova.exec(successCallback, errorCallback, bluetoothleName, "write", [params]);
   },
+  writeWithoutResponse: function(successCallback, errorCallback, params) {
+    cordova.exec(successCallback, errorCallback, bluetoothleName, "writeWithoutResponse", [params]);
+  },
   writeQ: function(successCallback, errorCallback, params) {
     cordova.exec(successCallback, errorCallback, bluetoothleName, "writeQ", [params]);
   },
